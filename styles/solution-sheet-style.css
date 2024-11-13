@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: poppins;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+ul {
+  list-style: none;
+}
+
+ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+    font-size: small;
+}
+
+nav {
+  padding: 15px;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#printSection {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+main {
+  flex: 1; /* Expands main content area */
+}
+
+.preparedSolution {
+  margin: 20px;
+  margin-bottom: 70px;
+}
+
+.signature-wrapper {
+  margin-top: auto; /* Pushes the signature wrapper to the bottom */
+  padding: 15px;
+
+}
+
+.signature {
+  display: flex;
+  flex-direction: column;
+}
+
+.signature ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.signature ul li {
+    margin: 5px;
+}

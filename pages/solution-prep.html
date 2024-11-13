@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/solution-prep-style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Solution Prep</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./solution-prep.html">Solutions</a></li>
+          <li><a href="./titration-prediction.html">Predictions</a></li>
+          <li><a href="./titration-analysis.html">Analysis</a></li>
+          <li><a href="./database.html">Database</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="contentWrapper">
+      <div id="title"><h2>Solution Preparation</h1></div>
+
+      <div id="inputWrapper">
+        <div class="card" id="solutionInfo">
+          <h3>Solution Info</h3>
+          <div class="variableInputBox">
+            <label for="name">Solution Name</label>
+            <input type="text" id="name" />
+          </div>
+          <div class="variableInputBox">
+            <label for="formula">Solution Formula</label>
+            <input type="text" id="formula" />
+          </div>
+
+          <div class="variableInputBox">
+            <label for="volume">Volume (L)</label>
+            <input type="text" name="" id="volume" />
+          </div>
+          <div class="variableInputBox">
+            <label for="molr">Molarity</label>
+            <input type="text" name="" id="molr" />
+          </div>
+
+          <div class="variableInputBox">
+            <label for="notes">Notes</label>
+            <input type="text" id="notes" />
+          </div>
+        </div>
+
+        <div class="cardWrapper">
+          <div class="card" id="solidSolute" tabindex="0">
+            <h3>Solid Solute</h3>
+            <div class="variableInputBox">
+              <label for="molrMass">Molar Mass</label>
+              <input type="text" id="molrMass" />
+            </div>
+          </div>
+          <div class="card" id="liquidSolute" tabindex="0">
+            <h3>Liquid Solute</h3>
+            <div class="variableInputBox">
+              <label for="concMolr">Concentrate Molarity</label>
+              <input type="text" id="concMolr" />
+            </div>
+          </div>
+        </div>
+
+        <div class="card" id="equation">
+          <p id="ans"></p>
+        </div>
+        <div class="card" id="printer">
+          <button id="addInfoButton">Add To Sheet</button>
+          <button id="printButton">Print</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- hidden section that will be printed -->
+    <iframe id="printFrame" style="display: none"></iframe>
+    <script src="../scripts/solutionPrep.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </body>
+</html>
