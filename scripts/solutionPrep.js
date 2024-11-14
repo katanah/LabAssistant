@@ -36,6 +36,7 @@ function stringToLatex(input) {
 
   // Format mol/L consistently as a single unit using \mathrm{}
   input = input.replace(/\bmol\/L\b/g, "\\mathrm{\\frac{mol}{L}}");
+  input = input.replace(/\bg\/mol\b/g, "\\mathrm{\\frac{g}{mol}}");
 
   // Format other units like L and mL as regular text
   input = input.replace(/\bL\b/g, "\\,\\mathrm{L}");
@@ -158,6 +159,14 @@ function printSolutionSheets() {
   generateSolutionSheets();
 }
 
+function acitvateSolute(active, inactive){
+  active.classList.add("active");
+  active.classList.remove("inactive");
+  inactive.classList.remove("active");
+  inactive.classList.add("inactive");
+
+}
+
 function initListeners() {
   const volume = document.getElementById("volume");
   const molr = document.getElementById("molr");
@@ -174,18 +183,8 @@ function initListeners() {
   concMolr.addEventListener("input", calcAns);
   addInfoButton.addEventListener("click", addInfo);
   printButton.addEventListener("click", printSolutionSheets);
-  solidSolute.addEventListener("focus", () =>
-    transitionActiveSolute(solidSolute)
-  );
-  solidSolute.addEventListener("click", () =>
-    transitionActiveSolute(solidSolute)
-  );
-  liquidSolute.addEventListener("click", () =>
-    transitionActiveSolute(liquidSolute)
-  );
-  liquidSolute.addEventListener("focus", () =>
-    transitionActiveSolute(liquidSolute)
-  );
+  solidSolute.addEventListener("click", () => acitvateSolute(solidSolute, liquidSolute));
+  liquidSolute.addEventListener("click", () => acitvateSolute(liquidSolute, solidSolute));
 }
 
 document.addEventListener("DOMContentLoaded", initListeners);
