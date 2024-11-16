@@ -14,7 +14,7 @@ function calcSolid(vol, molarity) {
   if (isNaN(molrMass)) return null;
   const result = vol * molarity * molrMass;
   return `${vol} L * ${molarity} mol/L * ${molrMass} g/mol = ${result.toFixed(
-    2
+    3
   )} g`;
 }
 
