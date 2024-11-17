@@ -7,6 +7,32 @@ a {
   all: unset;
 }
 
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav{
+  border-radius: 15px;
+  background-color: aliceblue;
+}
+
+nav ul{
+  display: flex;
+  
+}
+
+nav ul li {
+  margin: 0 20px;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+nav ul li:hover {
+  background-color: #f0f0f0;
+}
+
 ul {
   list-style: none;
   padding: 0;
