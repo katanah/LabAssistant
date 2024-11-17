@@ -9,16 +9,11 @@ function sodiumHydroxideSTD(gramsKHP, mLSodiumHydroxide) {
   return molaritySodiumHydroxide;
 }
 
-function hydrochloricAcidSTD() {
-  const mLSodiumHydroxide = parseFloat(
-    document.getElementById("mLSodiumHydroxideTitrant").value
-  ).toFixed(2);
-  const molaritySodiumHydroxide = parseFloat(
-    document.getElementById("molaritySodiumHydroxide").value
-  ).toFixed(4);
-  const mLHydrochloricAcid = parseFloat(
-    document.getElementById("mLHydrochloricAcid").value
-  ).toFixed(2);
+function hydrochloricAcidSTD(
+  mLSodiumHydroxide,
+  molaritySodiumHydroxide,
+  mLHydrochloricAcid
+) {
   const molarityHydrochloricAcid = (
     (mLSodiumHydroxide * molaritySodiumHydroxide) /
     mLHydrochloricAcid
@@ -88,6 +83,67 @@ function updateNaOHEquation() {
     console.error("MathJax rendering failed:", err);
   });
 }
+
+function updateHClEquation() {
+  // Retrieve and parse inputs
+  const mLSodiumHydroxide = parseFloat(mlNaOHTitrant.value);
+  const molaritySodiumHydroxide = parseFloat(molarityNaOH.value);
+  const mLHydrochloricAcid = parseFloat(mlHCl.value);
+
+  let newEquation = "";
+  let molarityHydrochloricAcid = "";
+
+  // Validate inputs incrementally
+  if (!isNaN(mLSodiumHydroxide)) {
+    newEquation += `${mLSodiumHydroxide} \\, \\text{mL NaOH}`;
+  } else {
+    newEquation += `\\text{mL NaOH}`;
+  }
+
+  newEquation += ` * `;
+
+  if (!isNaN(molaritySodiumHydroxide)) {
+    newEquation += `\\frac{${molaritySodiumHydroxide} \\, \\text{mol NaOH}}{1000 \\, \\text{mL NaOH}}`;
+  } else {
+    newEquation += `\\frac{\\text{mol NaOH}}{\\text{mL NaOH}}`;
+  }
+
+  newEquation += ` * \\frac{1 \\, \\text{mol HCl}}{1 \\, \\text{mol NaOH}} * `;
+
+  if (!isNaN(mLHydrochloricAcid)) {
+    newEquation += `\\frac{1000 \\, \\text{mL HCl}}{${mLHydrochloricAcid} \\, \\text{mL HCl}}`;
+  } else {
+    newEquation += `\\frac{\\text{mL HCl}}{\\text{mL HCl}}`;
+  }
+
+  // Calculate molarity if all inputs are valid
+  if (
+    !isNaN(mLSodiumHydroxide) &&
+    !isNaN(molaritySodiumHydroxide) &&
+    !isNaN(mLHydrochloricAcid)
+  ) {
+    molarityHydrochloricAcid = (
+      (mLSodiumHydroxide * molaritySodiumHydroxide) /
+      mLHydrochloricAcid
+    ).toFixed(4);
+
+    newEquation += ` = ${molarityHydrochloricAcid} \\, \\text{M HCl}`;
+  } else {
+    newEquation += ` = \\text{Incomplete inputs}`;
+  }
+
+  // Update the equation container
+  const equationContainer = document.getElementById("equationHA");
+  equationContainer.innerHTML = `$$ ${newEquation} $$`;
+
+  // Re-render MathJax
+  MathJax.typesetPromise([equationContainer]).catch((err) => {
+    console.error("MathJax rendering failed:", err);
+  });
+}
+
+function updateNa2S2O3Equation() {}
+
 // function move
 
 // tabs
@@ -105,7 +161,12 @@ tabHeader3.addEventListener("click", () => switchTabs(tab3, tabHeader3));
 // input fields
 const gramsKHP = document.getElementById("gramsKHP");
 const mlNaOH = document.getElementById("mLSodiumHydroxideAnalyte");
+const mlNaOHTitrant = document.getElementById("mLSodiumHydroxideTitrant");
+const molarityNaOH = document.getElementById("molarityNaOH");
+const mlHCl = document.getElementById("mLHCl");
 
 gramsKHP.addEventListener("input", updateNaOHEquation);
 mlNaOH.addEventListener("input", updateNaOHEquation);
-updateEquation();
+mlNaOHTitrant.addEventListener("input", updateHClEquation);
+molarityNaOH.addEventListener("input", updateHClEquation);
+mlHCl.addEventListener("input", updateHClEquation);
