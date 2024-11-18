@@ -41,8 +41,8 @@ function switchTabs(tab, tabHeader) {
 
 function updateNaOHEquation() {
   // Retrieve and parse inputs
-  const grams = parseFloat(gramsKHP.value);
-  const vol = parseFloat(mlNaOH.value);
+  const grams = parseFloat(gramsKHP.value).toFixed(3);
+  const vol = parseFloat(mlNaOH.value).toFixed(2);
   let molarity;
   let newEquation;
 
