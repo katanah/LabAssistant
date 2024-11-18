@@ -1,6 +1,12 @@
 :root {
-  --tab-default-color: #000224;
-  --tab-active-color: #e3b778;
+  --tab-default-color: #080f0f;
+  --tab-active-color: #323f9e;
+  --light-text-color: #fafafa;
+  --dark-text-color: #080f0f;
+  --button-default-color: #080f0f;
+  --button-hover-color: #323f9e;
+  --background-color: #009069;
+  /* --card-width: ; */
 }
 
 * {
@@ -16,7 +22,7 @@ body {
   padding: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgb(142, 93, 93);
+  background-color: var(--background-color);
 }
 
 a {
@@ -80,7 +86,7 @@ nav ul li:hover::after {
 }
 
 .tabs h3 {
-  color: #fafafa;
+  color: var(--light-text-color);
   background-color: #1f1b24;
   text-align: center;
   padding: 15px;
@@ -93,17 +99,19 @@ nav ul li:hover::after {
   display: flex;
   flex-direction: row;
   align-items: center;
+  min-width: 50%;
   width: 50%;
   justify-content: left;
   background-color: white;
   padding: 50px 40px;
+  padding-right: 70px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .tab-content h4 {
   font-size: 28px;
   margin-bottom: 20px;
-  color: #000224;
+  color: var(--dark-text-color);
   font-weight: 600;
   text-align: center;
 }
@@ -118,13 +126,6 @@ nav ul li:hover::after {
 
 .tab-content div.active *:not(mjx-container *) {
   display: inline-flex;
-}
-
-#sectionHeader {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: inherit;
 }
 
 .tabs h3.active {
@@ -156,7 +157,7 @@ nav ul li:hover::after {
   background-color: #f2f2f2;
   padding: 12px;
   border-radius: 3px;
-  width: 250px;
+  width: 175px;
   outline: none;
   font-size: 14px;
 }
@@ -184,4 +185,53 @@ nav ul li:hover::after {
   align-items: center;
   justify-content: center;
   background-color: #000224;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.buttonsWrapper {
+  display: flex;
+  background-color: white;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: var(cardWidth);
+  margin: 10px;
+  width: 50%;
+}
+
+.buttonsWrapper button {
+  all: unset;
+  margin: 10px 20px;
+  padding: 10px 80px;
+  color: var(--light-text-color);
+  background-color: var(--button-default-color);
+  position: relative;
+  overflow: hidden;
+  font-weight: 600;
+}
+
+.buttonsWrapper button span {
+  position: relative;
+  z-index: 2;
+}
+
+.buttonsWrapper button::before {
+  content: "";
+  position: absolute;
+  background-color: var(--button-hover-color);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms ease-out;
+}
+
+.buttonsWrapper button:hover::before {
+  transform: scaleX(1);
 }
