@@ -6,7 +6,7 @@
   --button-default-color: #080f0f;
   --button-hover-color: #323f9e;
   --background-color: #009069;
-  /* --card-width: ; */
+  --width: 70%;
 }
 
 * {
@@ -16,7 +16,6 @@
 }
 
 body {
-  background-color: #e0dae0;
   font-family: "poppins", sans-serif;
   margin: 0;
   padding: 0;
@@ -81,7 +80,7 @@ nav ul li:hover::after {
 
 .tabs {
   display: flex;
-  width: 50%;
+  width: var(--width);
   /* background-color: #4d5bf9; */
 }
 
@@ -100,7 +99,7 @@ nav ul li:hover::after {
   flex-direction: row;
   align-items: center;
   min-width: 50%;
-  width: 50%;
+  width: var(--width);
   justify-content: left;
   background-color: white;
   padding: 50px 40px;
@@ -200,7 +199,7 @@ nav ul li:hover::after {
   justify-content: center;
   width: var(cardWidth);
   margin: 10px;
-  width: 50%;
+  width: var(--width);
 }
 
 .buttonsWrapper button {
