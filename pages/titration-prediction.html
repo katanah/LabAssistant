@@ -1,27 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/titration-prediction-style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/titration-prediction-style.css" />
     <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Titration Prediction</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="./solution-prep.html">Solutions</a></li>
-                <li><a href="./titration-prediction.html">Predictions</a></li>
-                <li><a href="./titration-analysis.html">Analysis</a></li>
-                <li><a href="./database.html">Database</a></li>
-              </ul>
-        </nav>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./solution-prep.html">Solutions</a></li>
+          <li><a href="./titration-prediction.html">Predictions</a></li>
+          <li><a href="./titration-analysis.html">Analysis</a></li>
+          <li><a href="./database.html">Database</a></li>
+        </ul>
+      </nav>
     </header>
-    
-</body>
+    <div class="tabs-container">
+      <div class="tabs">
+        <h3 class="active" id="tabHeader1">Sodium Hydroxide</h3>
+        <h3 class="" id="tabHeader2">Hydrochloric Acid</h3>
+        <h3 id="tabHeader3">Sodium Thiosulfate</h3>
+      </div>
+      <div class="tab-content">
+        <div class="active" id="tab1">
+          <h4 id="sectionHeader">mL Sodium Hydroxide Prediction</h4>
+
+          <div class="contentWrapper">
+            <div class="inputWrapper">
+              <label class="inputField">
+                <input type="text" id="gramsKHP" required />
+                <span class="placeholder">Grams KHP</span>
+              </label>
+              <label class="inputField">
+                <input type="text" id="expectedMolarityNaOH" required />
+                <span class="placeholder">Expected Molarity</span>
+              </label>
+            </div>
+
+            <div class="equationContainer" id="equationSH">
+              $$\frac{1000 \text{ mL} * \text{g KHP}}{204.23 \frac{\text{g KHP}}
+              {\text{mol KHP}}* \text{M NaOH}} = \text{ mL NaOH} $$
+            </div>
+          </div>
+        </div>
+        <div class="" id="tab2">
+          <h4 id="sectionHeader">mL Sodium Hydroxide Prediction</h4>
+          <div class="contentWrapper">
+            <div class="inputWrapper">
+              <label class="inputField">
+                <input type="text" id="molNaOH" required />
+                <span class="placeholder">Molarity NaOH</span>
+              </label>
+
+              <label class="inputField">
+                <input type="text" id="expectedMolarityHCl" required />
+                <span class="placeholder">Expected Molarity</span>
+              </label>
+
+              <label class="inputField">
+                <input type="text" id="mLHCl" required />
+                <span class="placeholder">mL HCl</span>
+              </label>
+            </div>
+
+            <div class="equationContainer" id="equationHA">
+              $$ \frac{\text{mL HCl}*\text{M HCl}}{\text{M NaOH}} = \text{ mL
+              NaOH} $$
+            </div>
+          </div>
+        </div>
+        <div id="tab3">
+          <h4 id="sectionHeader">Sodium Thiosulfate Analysis</h4>
+          <div class="contentWrapper">
+            <div class="inputWrapper">
+              <label class="inputField">
+                <input type="text" id="gramsKHP" required />
+                <span class="placeholder">Grams KHP</span>
+              </label>
+              <label class="inputField">
+                <input type="text" id="mLSodiumHydroxideAnalyte" required />
+                <span class="placeholder">mL NaOH</span>
+              </label>
+            </div>
+
+            <div class="equationContainer" id="equation">
+              $$\text{g KHP}*\frac{1\text{mol KHP}}{204.23 \text{ g KHP}} *
+              \frac{1\text{mol NaOH}}{1\text{mol KHP}} *
+              \frac{1000\text{mL}}{\text{mL NaOH}} = \text{M NaOH}$$
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../scripts/titrationPrediction.js"></script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+  </body>
 </html>
