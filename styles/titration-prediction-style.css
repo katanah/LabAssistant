@@ -134,9 +134,23 @@ nav ul li:hover::after {
 }
 
 .contentWrapper {
+  display: flex;
   margin-top: 10px;
   width: 59rem;
 }
+
+
+/* .contentWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.equationWrapper {
+  display: flex;
+  flex-direction: row;
+  background-color: #d3d3d3;
+  width: 150%;
+} */
 
 .inputWrapper {
   display: flex;
