@@ -70,12 +70,18 @@ body {
   margin: 5px;
   justify-content: center;
   align-items: center;
+  font-weight: 100;
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
     0 15px 40px rgba(166, 173, 201, 0.2);
   max-width: 600px;
   width: 500px;
+}
+
+.card:hover {
+  outline: 5px solid black;
+  transition: outline 250ms ease-in;
 }
 
 .card h2 {
