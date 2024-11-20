@@ -6,13 +6,17 @@
 }
 
 a {
-  all: unset;
+  text-decoration: none;
+  color: inherit;
+  display: inline;
   text-align: center;
 }
 
 a h1 {
   font-size: 60px;
   margin-bottom: 10px;
+  filter: grayscale(100%);
+  text-shadow: -;
 }
 
 nav {
@@ -72,7 +76,7 @@ body {
   align-items: center;
   font-weight: 100;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: #d3d3d3;
   box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
     0 15px 40px rgba(166, 173, 201, 0.2);
   max-width: 600px;
@@ -80,14 +84,20 @@ body {
 }
 
 .card:hover {
-  outline: 5px solid black;
-  transition: outline 250ms ease-in;
+  background-color: white;
+  transition: background-color 250ms ease;
+}
+
+.card:hover h1 {
+  filter: grayscale(0%);
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000,
+    2px 2px 0 #000;
+  transition: all 250ms ease-in;
 }
 
 .card h2 {
   margin-bottom: 25px;
 }
-
 
 #options {
   display: grid;
