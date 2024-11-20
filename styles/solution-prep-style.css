@@ -33,10 +33,10 @@ nav ul {
 
 nav ul li {
   margin: 10px;
-  font:  18px Poppins;
+  font: 18px Poppins;
   position: relative;
   padding-bottom: 3px;
-  color:#fff;
+  color: #fff;
 }
 
 nav ul li::after {
@@ -64,7 +64,6 @@ nav ul li:hover::after {
   margin-top: 50px;
   height: 100vh;
 }
-
 
 #inputWrapper {
   display: flex;
@@ -108,6 +107,14 @@ nav ul li:hover::after {
   padding: 25px;
 }
 
+#solidSolute {
+  background-color: #d3d3d3;
+}
+
+#liquidSolute {
+  background-color: #d3d3d3;
+}
+
 .variableInputBox {
   display: flex;
   flex-direction: column;
@@ -145,4 +152,19 @@ nav ul li:hover::after {
 
 #printer button:hover {
   background-color: grey;
+}
+
+.active#solidSolute {
+  background-color: white;
+  transition: background-color 250ms ease-in;
+}
+
+.active#liquidSolute {
+  background-color: white;
+  transition: background-color 250ms ease-in;
+}
+
+.inactive {
+  background-color: #d3d3d3;
+  transition: filter 250ms ease-in;
 }
