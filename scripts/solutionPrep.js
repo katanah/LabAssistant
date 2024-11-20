@@ -164,7 +164,7 @@ function acitvateSolute(active, inactive){
   active.classList.remove("inactive");
   inactive.classList.remove("active");
   inactive.classList.add("inactive");
-
+  calcAns();
 }
 
 function initListeners() {
