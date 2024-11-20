@@ -149,14 +149,14 @@ function updateNa2S2O3Equation() {}
 // tabs
 const tab1 = document.getElementById("tab1");
 const tab2 = document.getElementById("tab2");
-const tab3 = document.getElementById("tab3");
+// const tab3 = document.getElementById("tab3");
 const tabHeader1 = document.getElementById("tabHeader1");
 const tabHeader2 = document.getElementById("tabHeader2");
-const tabHeader3 = document.getElementById("tabHeader3");
+// const tabHeader3 = document.getElementById("tabHeader3");
 
 tabHeader1.addEventListener("click", () => switchTabs(tab1, tabHeader1));
 tabHeader2.addEventListener("click", () => switchTabs(tab2, tabHeader2));
-tabHeader3.addEventListener("click", () => switchTabs(tab3, tabHeader3));
+// tabHeader3.addEventListener("click", () => switchTabs(tab3, tabHeader3));
 
 // input fields
 const gramsKHP = document.getElementById("gramsKHP");
