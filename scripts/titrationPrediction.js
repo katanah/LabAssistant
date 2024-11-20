@@ -3,12 +3,12 @@ function predictSodiumHydroxide(gramsKHP, expectedMolarityNaOH) {
   const MOLAR_MASS_KHP = 204.23;
   const mlSodiumHydroxide =
     (LITERS_TO_ML * gramsKHP) / (MOLAR_MASS_KHP * expectedMolarityNaOH);
-  return mlSodiumHydroxide;
+  return mlSodiumHydroxide.toFixed(2);
 }
 
 function predictHydrocholoricAcid(molarityHCl, mlHCl, molarityNaOH) {
   const mlSodiumHydroxide = (molarityHCl * mlHCl) / molarityNaOH;
-  return mlSodiumHydroxide;
+  return mlSodiumHydroxide.toFixed(2);
 }
 
 function updateNaOHPrediction() {
@@ -20,7 +20,7 @@ function updateNaOHPrediction() {
   if (!isNaN(molarity) && !isNaN(grams)) {
     mL = predictSodiumHydroxide(grams, molarity);
     newEquation = `\\frac{1000 \\times ${grams} \\text{ g KHP}}{204.23 \\frac{\\text{g KHP}}{\\text{mol KHP}} \\times ${molarity} \\text{ M NaOH}} 
-    = ${mL.toFixed(2)} \\text{ mL NaOH}`;
+    = ${mL} \\text{ mL NaOH}`;
   } else if (!isNaN(grams)) {
     newEquation = `\\frac{1000 \\times ${grams} \\text{ g KHP}}{204.23 \\frac{\\text{g KHP}}{\\text{mol KHP}} \\times \\text{M NaOH}} = \\text{ mL NaOH}`;
   } else if (!isNaN(molarity)) {
